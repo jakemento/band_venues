@@ -26,22 +26,22 @@ public class BandTest {
     Band savedBand = Band.all().get(0);
     assertTrue(savedBand.equals(firstBand));
   }
-//
-//   @Test
-//   public void save_assignsIdToObject() {
-//     Book firstBook = new Book("Moby Dick");
-//     firstBook.save();
-//     Book savedBook = Book.all().get(0);
-//     assertEquals(firstBook.getId(), savedBook.getId());
-//   }
-//   @Test
-//   public void find_findBookInDatabase_true() {
-//     Book firstBook = new Book("Moby Dick");
-//     firstBook.save();
-//     Book savedBook = Book.find(firstBook.getId());
-//     assertTrue(firstBook.equals(savedBook));
-//   }
-//
+
+  @Test
+  public void save_assignsIdToObject() {
+    Band firstBand = new Band("the beatles");
+    firstBand.save();
+    Band savedBand = Band.all().get(0);
+    assertEquals(firstBand.getId(), savedBand.getId());
+  }
+  @Test
+  public void find_findBandInDatabase_true() {
+    Band firstBand = new Band("the beatles");
+    firstBand.save();
+    Band savedBand = Band.find(firstBand.getId());
+    assertTrue(firstBand.equals(savedBand));
+  }
+
 //   @Test
 //   public void addAuthor_addsAuthorToBook() {
 //     Author myAuthor = new Author("C.S", "Lewis");
