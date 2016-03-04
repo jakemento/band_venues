@@ -14,6 +14,10 @@
   <button type="submit" class= ".btn btn-success">Add Venue</button>
 </form>
 
+<br>
+<br>
+
+
 #foreach ($venue in $venues)
   <li><a href="/venues/$venue.getId()">$venue.getName()</a></li>
   <form action ='/venues/$venue.getId()/delete' method ='post'>
