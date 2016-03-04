@@ -111,17 +111,17 @@ public class App {
       return null;
     });
 
-    // post("/books/delete", (request, response) -> {
-    //   Book.deleteAllBooks();
-    //   response.redirect("/books");
-    //   return null;
-    // });
-    //
-    //
-    // post("/authors/delete", (request, response) -> {
-    //   Author.deleteAllAuthors();
-    //   response.redirect("/authors");
-    //   return null;
-    // });
+    post("/bands/delete", (request, response) -> {
+      Band.deleteAllBands();
+      response.redirect("/bands");
+      return null;
+    });
+
+
+    post("/venues/delete", (request, response) -> {
+      Venue.deleteAllVenues();
+      response.redirect("/venues");
+      return null;
+    });
   }
 }
