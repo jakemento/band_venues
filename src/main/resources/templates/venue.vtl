@@ -1,0 +1,26 @@
+<h1>$author.getFirstName() $author.getLastName()</h1>
+
+#if($author.getBooks())
+<h3>Book(s):</h3>
+<ul>
+    #foreach($book in $author.getBooks())
+      <li><a href="/books/$book.getId()">$book.getTitle()</a></li>
+      <form action ='/books/$book.getId()/delete' method ='post'>
+        <button type = 'submit'> Delete Book </button>
+      </form>
+    #end
+  </ul>
+#end
+
+<h4>Add an book to $author.getFirstName() $author.getLastName()</h4>
+
+<form action='/add_books' method='post'>
+    <input id="author_id" name="author_id" type="hidden" value="$author.getId()">
+    <label for="book_id">Select a book:</label>
+    <select id='book_id' name='book_id' type='text'>
+      #foreach($book in $books)
+        <option value="$book.getId()"> $book.getTitle()</option>
+      #end
+    </select>
+    <button class=".btn btn-success" type='submit'>Add book</button>
+</form>

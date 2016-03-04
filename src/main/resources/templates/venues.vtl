@@ -1,0 +1,30 @@
+<h1>Authors Catalog</h1>
+
+<p>Add an Author to the library:</p>
+
+<form action="/authors" method="post">
+  <label for="firstName">First Name:</label>
+  <input id="firstName" name="firstName" type="text">
+  <label for="lastName">Last Name:</label>
+  <input id="lastName" name="lastName" type="text">
+
+  #foreach($book in $books)
+    <option value="$book.getTitle()
+    $book.getTitle()">$book.getTitle()</option>
+  #end
+
+  <button type="submit" class= ".btn btn-success">Add Author</button>
+</form>
+
+#foreach ($author in $authors)
+  <li><a href="/authors/$author.getId()">$author.getFirstName()
+  $author.getLastName()</a></li>
+  <form action ='/authors/$author.getId()/delete' method ='post'>
+    <button type = 'submit'> Delete author </button>
+  </form>
+#end
+
+
+<form action ='/authors/delete' method ='post'>
+  <button type = 'submit'> Delete ALL Authors </button>
+</form>
