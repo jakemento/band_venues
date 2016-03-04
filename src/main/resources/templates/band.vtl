@@ -1,26 +1,26 @@
-<h1>$book.getTitle()</h1>
+<h1>$band.getName()</h1>
 
-#if($book.getAuthors())
-<h3>Author(s):</h3>
+#if($band.getVenues())
+<h3>Venue(s):</h3>
 <ul>
-    #foreach($author in $book.getAuthors())
-      <li><a href='/authors/$author.getId()'>$author.getFirstName()</a></li>
-      <form action ='/authors/$author.getId()/delete' method ='post'>
-        <button type = 'submit'> Delete author </button>
+    #foreach($venue in $band.getVenues())
+      <li><a href='/venues/$venue.getId()'>$venue.getName()</a></li>
+      <form action ='/venues/$venue.getId()/delete' method ='post'>
+        <button type = 'submit'> Delete venue </button>
       </form>
     #end
   </ul>
 #end
 
-<h4>Add an author to $book.getTitle()</h4>
+<h4>Add a venue to $band.getName()</h4>
 
-<form action='/add_authors' method='post'>
-    <input id="book_id" name="book_id" type="hidden" value="$book.getId()">
-    <label for="author_id">Select an author:</label>
-    <select id='author_id' name='author_id' type='text'>
-      #foreach($author in $authors)
-        <option value="$author.getId()"> $author.getFirstName() $author.getLastName() </option>
+<form action='/add_venues' method='post'>
+    <input id="band_id" name="band_id" type="hidden" value="$band.getId()">
+    <label for="venue_id">Select venue:</label>
+    <select id='venue_id' name='venue_id' type='text'>
+      #foreach($venue in $venues)
+        <option value="$venue.getId()"> $venue.getName()</option>
       #end
     </select>
-    <button class=".btn btn-success" type='submit'>Add author</button>
+    <button class=".btn btn-success" type='submit'>Add venue</button>
 </form>
