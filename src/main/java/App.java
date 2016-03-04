@@ -93,24 +93,24 @@ public class App {
       return null;
     });
 
-    //
-    // post("/books/:id/delete", (request, response) -> {
-    //   int id = Integer.parseInt(request.params("id"));
-    //   Book book = Book.find(id);
-    //   book.delete();
-    //   response.redirect("/books");
-    //   return null;
-    // });
-    //
-    //
-    // post("/authors/:id/delete", (request, response) -> {
-    //   int id = Integer.parseInt(request.params("id"));
-    //   Author author = Author.find(id);
-    //   author.delete();
-    //   response.redirect("/authors");
-    //   return null;
-    // });
-    //
+
+    post("/bands/:id/delete", (request, response) -> {
+      int id = Integer.parseInt(request.params("id"));
+      Band band = Band.find(id);
+      band.delete();
+      response.redirect("/bands");
+      return null;
+    });
+
+
+    post("/venues/:id/delete", (request, response) -> {
+      int id = Integer.parseInt(request.params("id"));
+      Venue venue = Venue.find(id);
+      venue.delete();
+      response.redirect("/venues");
+      return null;
+    });
+
     // post("/books/delete", (request, response) -> {
     //   Book.deleteAllBooks();
     //   response.redirect("/books");
