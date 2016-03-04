@@ -62,7 +62,7 @@ public class BandTest {
 
     Band myBand = new Band("the beatles");
     myBand.save();
-
+    
     myBand.addVenue(myVenue);
     List savedVenues = myBand.getVenues();
     assertEquals(savedVenues.size(), 1);
