@@ -33,28 +33,28 @@ public class App {
     }, new VelocityTemplateEngine());
 
 
+
+    get("/bands/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      int id = Integer.parseInt(request.params("id"));
+      Band band = Band.find(id);
+      model.put("band", band);
+      model.put("venue", band.getVenues());
+      model.put("venues", Venue.all());
+      model.put("template", "templates/band.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
     //
-    // get("/books/:id", (request, response) -> {
-    //   HashMap<String, Object> model = new HashMap<String, Object>();
-    //   int id = Integer.parseInt(request.params("id"));
-    //   Book book = Book.find(id);
-    //   model.put("book", book);
-    //   model.put("author", book.getAuthors());
-    //   model.put("authors", Author.all());
-    //   model.put("template", "templates/book.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
-    //
-    // get("/authors/:id", (request, response) -> {
-    //   HashMap<String, Object> model = new HashMap<String, Object>();
-    //   int id = Integer.parseInt(request.params("id"));
-    //   Author author = Author.find(id);
-    //   model.put("author", author);
-    //   model.put("book", author.getBooks());
-    //   model.put("books", Book.all());
-    //   model.put("template", "templates/author.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
+    get("/venues/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      int id = Integer.parseInt(request.params("id"));
+      Venue venue = Venue.find(id);
+      model.put("venue", venue);
+      model.put("band", venue.getBands());
+      model.put("bands", Band.all());
+      model.put("template", "templates/venue.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
     //
     // post("/books", (request, response) -> {
     //   String title = request.queryParams("title");
