@@ -77,7 +77,7 @@ public class AppTest extends FluentTest {
 
 
   @Test
- public void allBandsNameOnVenuePage() {
+  public void allBandsNameOnVenuePage() {
    Venue myVenue = new Venue("my garage");
    myVenue.save();
    Band firstBand = new Band("the beatles");
@@ -88,21 +88,20 @@ public class AppTest extends FluentTest {
    goTo(venuePath);
    assertThat(pageSource()).contains("the beatles");
    assertThat(pageSource()).contains("the smiths");
- }
+  }
 
 
- @Test
-public void allVenusNameOnBandPage() {
-  Band myBand = new Band("the beatles");
-  myBand.save();
-  Venue firstVenue = new Venue("my garage");
-  firstVenue.save();
-  Venue secondVenue = new Venue("your garage");
-  secondVenue.save();
-  String bandPath = String.format("http://localhost:4567/bands/%d", myBand.getId());
-  goTo(bandPath);
-  assertThat(pageSource()).contains("my garage");
-  assertThat(pageSource()).contains("your garage");
-}
-
+   @Test
+   public void allVenusNameOnBandPage() {
+    Band myBand = new Band("the beatles");
+    myBand.save();
+    Venue firstVenue = new Venue("my garage");
+    firstVenue.save();
+    Venue secondVenue = new Venue("your garage");
+    secondVenue.save();
+    String bandPath = String.format("http://localhost:4567/bands/%d", myBand.getId());
+    goTo(bandPath);
+    assertThat(pageSource()).contains("my garage");
+    assertThat(pageSource()).contains("your garage");
+  }
 }
