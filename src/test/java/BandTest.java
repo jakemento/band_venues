@@ -54,19 +54,19 @@ public class BandTest {
     Venue savedVenue = myBand.getVenues().get(0);
     assertTrue(myVenue.equals(savedVenue));
 }
-//
-//   @Test
-//   public void getAuthors_returnsAllAuthors_List() {
-//     Author myAuthor = new Author("C.S", "Lewis");
-//     myAuthor.save();
-//
-//     Book myBook = new Book("Chronicals of Narnia");
-//     myBook.save();
-//
-//     myBook.addAuthor(myAuthor);
-//     List savedAuthors = myBook.getAuthors();
-//     assertEquals(savedAuthors.size(), 1);
-//   }
+
+  @Test
+  public void getVenues_returnsAllVenues_List() {
+    Venue myVenue = new Venue("my garage");
+    myVenue.save();
+
+    Band myBand = new Band("the beatles");
+    myBand.save();
+
+    myBand.addVenue(myVenue);
+    List savedVenues = myBand.getVenues();
+    assertEquals(savedVenues.size(), 1);
+  }
 //   @Test
 //   public void delete_deletesAllAuthorsFromBook() {
 //     Author myAuthor = new Author("C.S.", "Lewis");

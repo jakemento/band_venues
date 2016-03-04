@@ -67,15 +67,15 @@ public class Venue {
     }
   }
 
-  // public List<Book> getBooks() {
-  //   try(Connection con = DB.sql2o.open()){
-  //   String sql = "SELECT books.* FROM authors JOIN books_authors ON (authors.id = books_authors.author_id) JOIN books ON (books_authors.book_id = books.id) WHERE authors.id = :author_id;";
-  //     return con.createQuery(sql)
-  //     .addParameter("author_id", this.getId())
-  //     .executeAndFetch(Book.class);
-  //   }
-  // }
-  //
+  public List<Band> getBands() {
+    try(Connection con = DB.sql2o.open()){
+    String sql = "SELECT bands.* FROM venues JOIN bands_venues ON (venues.id = bands_venues.venue_id) JOIN bands ON (bands_venues.band_id = bands.id) WHERE venues.id = :venue_id;";
+      return con.createQuery(sql)
+      .addParameter("venue_id", this.getId())
+      .executeAndFetch(Band.class);
+    }
+  }
+
   // public void delete() {
   //   try(Connection con = DB.sql2o.open()) {
   //     String deleteQuery = "DELETE FROM authors WHERE id = :id;";
