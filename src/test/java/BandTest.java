@@ -62,21 +62,21 @@ public class BandTest {
 
     Band myBand = new Band("the beatles");
     myBand.save();
-    
+
     myBand.addVenue(myVenue);
     List savedVenues = myBand.getVenues();
     assertEquals(savedVenues.size(), 1);
   }
-//   @Test
-//   public void delete_deletesAllAuthorsFromBook() {
-//     Author myAuthor = new Author("C.S.", "Lewis");
-//     myAuthor.save();
-//
-//     Book myBook = new Book("Chronicals of Narnia");
-//     myBook.save();
-//
-//     myBook.addAuthor(myAuthor);
-//     myBook.delete();
-//     assertEquals(myAuthor.getBooks().size(), 0);
-//   }
+  @Test
+  public void delete_deletesAllVenuesFromBand() {
+    Venue myVenue = new Venue("my garage");
+    myVenue.save();
+
+    Band myBand = new Band("the beatles");
+    myBand.save();
+
+    myBand.addVenue(myVenue);
+    myBand.delete();
+    assertEquals(myVenue.getBands().size(), 0);
+  }
 }

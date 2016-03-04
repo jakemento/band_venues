@@ -76,20 +76,20 @@ public class Band {
     }
   }
 
-  // public void delete() {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String deleteQuery = "DELETE FROM books WHERE id = :id;";
-  //     con.createQuery(deleteQuery)
-  //     .addParameter("id", id)
-  //     .executeUpdate();
-  //   }
-  // }
-  //
-  // public static void deleteAllBooks() {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String deleteQuery = "DELETE FROM books;";
-  //     con.createQuery(deleteQuery)
-  //     .executeUpdate();
-  //   }
-  // }
+  public void delete() {
+    try(Connection con = DB.sql2o.open()) {
+      String deleteQuery = "DELETE FROM bands WHERE id = :id;";
+      con.createQuery(deleteQuery)
+      .addParameter("id", id)
+      .executeUpdate();
+    }
+  }
+
+  public static void deleteAllBands() {
+    try(Connection con = DB.sql2o.open()) {
+      String deleteQuery = "DELETE FROM bands;";
+      con.createQuery(deleteQuery)
+      .executeUpdate();
+    }
+  }
 }

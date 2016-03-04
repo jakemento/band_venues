@@ -76,20 +76,20 @@ public class Venue {
     }
   }
 
-  // public void delete() {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String deleteQuery = "DELETE FROM authors WHERE id = :id;";
-  //     con.createQuery(deleteQuery)
-  //     .addParameter("id", id)
-  //     .executeUpdate();
-  //   }
-  // }
-  //
-  // public static void deleteAllAuthors() {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String deleteQuery = "DELETE FROM authors;";
-  //     con.createQuery(deleteQuery)
-  //     .executeUpdate();
-  //   }
-  // }
+  public void delete() {
+    try(Connection con = DB.sql2o.open()) {
+      String deleteQuery = "DELETE FROM venues WHERE id = :id;";
+      con.createQuery(deleteQuery)
+      .addParameter("id", id)
+      .executeUpdate();
+    }
+  }
+
+  public static void deleteAllVenues() {
+    try(Connection con = DB.sql2o.open()) {
+      String deleteQuery = "DELETE FROM venues;";
+      con.createQuery(deleteQuery)
+      .executeUpdate();
+    }
+  }
 }
