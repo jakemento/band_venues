@@ -1,30 +1,27 @@
-<h1>Authors Catalog</h1>
+<h1>Venues List</h1>
 
-<p>Add an Author to the library:</p>
+<p>Add a Venue to a Band:</p>
 
-<form action="/authors" method="post">
-  <label for="firstName">First Name:</label>
-  <input id="firstName" name="firstName" type="text">
-  <label for="lastName">Last Name:</label>
-  <input id="lastName" name="lastName" type="text">
+<form action="/venues" method="post">
+  <label for="venueName">Venue Name:</label>
+  <input id="venueName" name="venueName" type="text">
 
-  #foreach($book in $books)
-    <option value="$book.getTitle()
-    $book.getTitle()">$book.getTitle()</option>
+  #foreach($band in $bands)
+    <option value="$band.getName()
+    $band.getName()">$band.getName()</option>
   #end
 
-  <button type="submit" class= ".btn btn-success">Add Author</button>
+  <button type="submit" class= ".btn btn-success">Add Venue</button>
 </form>
 
-#foreach ($author in $authors)
-  <li><a href="/authors/$author.getId()">$author.getFirstName()
-  $author.getLastName()</a></li>
-  <form action ='/authors/$author.getId()/delete' method ='post'>
-    <button type = 'submit'> Delete author </button>
+#foreach ($venue in $venues)
+  <li><a href="/venues/$venue.getId()">$venue.getName()</a></li>
+  <form action ='/venues/$venue.getId()/delete' method ='post'>
+    <button type = 'submit'> Delete venue </button>
   </form>
 #end
 
 
-<form action ='/authors/delete' method ='post'>
-  <button type = 'submit'> Delete ALL Authors </button>
+<form action ='/venues/delete' method ='post'>
+  <button type = 'submit'> Delete ALL Venues </button>
 </form>

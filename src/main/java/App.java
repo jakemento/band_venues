@@ -25,19 +25,14 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // get("/authors", (request, response) -> {
-    //   HashMap<String, Object> model = new HashMap<String, Object>();
-    //   model.put("authors", Author.all());
-    //   model.put("template", "templates/authors.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
-    //
-    // get("/patrons", (request, response) -> {
-    //   HashMap<String, Object> model = new HashMap<String, Object>();
-    //   model.put("patrons", Patron.all());
-    //   model.put("template", "templates/patrons.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
+    get("/venues", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("venues", Venue.all());
+      model.put("template", "templates/venues.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+
     //
     // get("/books/:id", (request, response) -> {
     //   HashMap<String, Object> model = new HashMap<String, Object>();
@@ -81,14 +76,7 @@ public class App {
     //   return null;
     // });
     //
-    // post("/patrons", (request, response) -> {
-    //   String patronName = request.queryParams("patronName");
-    //   patronName = patronName.substring(0, 1).toUpperCase() + patronName.substring(1);
-    //   Patron newPatron = new Patron(patronName);
-    //   newPatron.save();
-    //   response.redirect("/patrons");
-    //   return null;
-    // });
+
     //
     // post("/add_books", (request, response) -> {
     //   int authorId = Integer.parseInt(request.queryParams("author_id"));
