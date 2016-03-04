@@ -15,7 +15,7 @@ public class Band {
     }
 
 
-    public Book(String name) {
+    public Band(String name) {
     this.name = name;
   }
 
