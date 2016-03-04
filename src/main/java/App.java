@@ -32,8 +32,6 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-
-
     get("/bands/:id", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       int id = Integer.parseInt(request.params("id"));
@@ -44,7 +42,7 @@ public class App {
       model.put("template", "templates/band.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
-    //
+
     get("/venues/:id", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       int id = Integer.parseInt(request.params("id"));
@@ -55,27 +53,23 @@ public class App {
       model.put("template", "templates/venue.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
-    //
-    // post("/books", (request, response) -> {
-    //   String title = request.queryParams("title");
-    //   title = title.substring(0, 1).toUpperCase() + title.substring(1);
-    //   Book newBook = new Book(title);
-    //   newBook.save();
-    //   response.redirect("/books");
-    //   return null;
-    // });
-    //
-    // post("/authors", (request, response) -> {
-    //   String firstName = request.queryParams("firstName");
-    //   firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
-    //   String lastName = request.queryParams("lastName");
-    //   lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
-    //   Author newAuthor = new Author(firstName, lastName);
-    //   newAuthor.save();
-    //   response.redirect("/authors");
-    //   return null;
-    // });
-    //
+
+    post("/bands", (request, response) -> {
+      String bandName = request.queryParams("bandName");
+      Band newBand = new Band(bandName);
+      newBand.save();
+      response.redirect("/bands");
+      return null;
+    });
+
+    post("/venues", (request, response) -> {
+      String venueName = request.queryParams("venueName");
+      Venue newVenue = new Venue(venueName);
+      newVenue.save();
+      response.redirect("/venues");
+      return null;
+    });
+
 
     //
     // post("/add_books", (request, response) -> {
