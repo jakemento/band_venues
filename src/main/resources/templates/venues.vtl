@@ -1,10 +1,10 @@
 <h1>Venues List</h1>
 
-<p>Add a Venue to a Band:</p>
+<p>Add a Venue:</p>
 
 <form action="/venues" method="post">
   <label for="venueName">Venue Name:</label>
-  <input id="venueName" name="venueName" type="text">
+  <input id="venueName" name="venueName" type="text" required>
 
   #foreach($band in $bands)
     <option value="$band.getName()

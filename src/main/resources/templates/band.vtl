@@ -1,7 +1,7 @@
 <h1>Band Name: $band.getName()</h1>
 
 #if($band.getVenues())
-<h3>Venue(s):</h3>
+<h3>Venue(s) $band.getName() have played at:</h3>
 <ul>
     #foreach($venue in $band.getVenues())
       <li><a href='/venues/$venue.getId()'>$venue.getName()</a></li>
