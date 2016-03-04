@@ -71,28 +71,28 @@ public class App {
     });
 
 
-    //
-    // post("/add_books", (request, response) -> {
-    //   int authorId = Integer.parseInt(request.queryParams("author_id"));
-    //   int bookId = Integer.parseInt(request.queryParams("book_id"));
-    //   Book book = Book.find(bookId);
-    //   Author author = Author.find(authorId);
-    //   author.addBook(book);
-    //   response.redirect("/authors/" + authorId);
-    //   return null;
-    // });
-    //
-    //
-    // post("/add_authors", (request, response) -> {
-    //   int bookId = Integer.parseInt(request.queryParams("book_id"));
-    //   int authorId = Integer.parseInt(request.queryParams("author_id"));
-    //   Book book = Book.find(bookId);
-    //   Author author = Author.find(authorId);
-    //   book.addAuthor(author);
-    //   response.redirect("/books/" + bookId);
-    //   return null;
-    // });
-    //
+
+    post("/add_bands", (request, response) -> {
+      int venueId = Integer.parseInt(request.queryParams("venue_id"));
+      int bandId = Integer.parseInt(request.queryParams("band_id"));
+      Band band = Band.find(bandId);
+      Venue venue = Venue.find(venueId);
+      venue.addBand(band);
+      response.redirect("/venues/" + venueId);
+      return null;
+    });
+
+
+    post("/add_venues", (request, response) -> {
+      int bandId = Integer.parseInt(request.queryParams("band_id"));
+      int venueId = Integer.parseInt(request.queryParams("venue_id"));
+      Band band = Band.find(bandId);
+      Venue venue = Venue.find(venueId);
+      band.addVenue(venue);
+      response.redirect("/bands/" + bandId);
+      return null;
+    });
+
     //
     // post("/books/:id/delete", (request, response) -> {
     //   int id = Integer.parseInt(request.params("id"));
