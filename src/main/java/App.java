@@ -123,5 +123,24 @@ public class App {
       response.redirect("/venues");
       return null;
     });
+
+    get("/bands/:id/edit", (request, response) -> {
+     HashMap<String, Object> model = new HashMap<String, Object>();
+
+     Band thisBand = Band.find(Integer.parseInt(request.params("id")));
+     model.put("band", thisBand);
+     model.put("allVenues", Venue.all());
+     model.put("template", "templates/updateBand.vtl");
+     return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+   post("/bands/:id/change-name", (request, response) -> {
+    HashMap<String, Object> model = new HashMap<String, Object>();
+
+    Band thisBand = Band.find(Integer.parseInt(request.params("id")));
+    thisBand.update(request.queryParams("newName"));
+    response.redirect("/bands/" + thisBand.getId());
+    return null;
+      });
   }
 }
