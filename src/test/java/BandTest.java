@@ -42,18 +42,18 @@ public class BandTest {
     assertTrue(firstBand.equals(savedBand));
   }
 
-//   @Test
-//   public void addAuthor_addsAuthorToBook() {
-//     Author myAuthor = new Author("C.S", "Lewis");
-//     myAuthor.save();
-//
-//     Book myBook = new Book("Chronicals of Narnia");
-//     myBook.save();
-//
-//     myBook.addAuthor(myAuthor);
-//     Author savedAuthor = myBook.getAuthors().get(0);
-//     assertTrue(myAuthor.equals(savedAuthor));
-// }
+  @Test
+  public void addVenue_addsVenueToBand() {
+    Venue myVenue = new Venue("my garage");
+    myVenue.save();
+
+    Band myBand = new Band("the beatles");
+    myBand.save();
+
+    myBand.addVenue(myVenue);
+    Venue savedVenue = myBand.getVenues().get(0);
+    assertTrue(myVenue.equals(savedVenue));
+}
 //
 //   @Test
 //   public void getAuthors_returnsAllAuthors_List() {

@@ -57,25 +57,25 @@ public class Band {
     }
   }
 
-  // public void addAuthor(Author author) {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "INSERT INTO books_authors (book_id, author_id) VALUES (:book_id, :author_id)";
-  //     con.createQuery(sql)
-  //     .addParameter("book_id",this.getId())
-  //     .addParameter("author_id", author.getId())
-  //     .executeUpdate();
-  //   }
-  // }
-  //
-  // public List<Author> getAuthors() {
-  //   try(Connection con = DB.sql2o.open()){
-  //   String sql = "SELECT authors.* FROM books JOIN books_authors ON (books.id = books_authors.book_id) JOIN authors ON (books_authors.author_id = authors.id) WHERE books.id = :book_id;";
-  //     return con.createQuery(sql)
-  //     .addParameter("book_id", this.getId())
-  //     .executeAndFetch(Author.class);
-  //   }
-  // }
-  //
+  public void addVenue(Venue venue) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO bands_venues (band_id, venue_id) VALUES (:band_id, :venue_id)";
+      con.createQuery(sql)
+      .addParameter("band_id",this.getId())
+      .addParameter("venue_id", venue.getId())
+      .executeUpdate();
+    }
+  }
+
+  public List<Venue> getVenues() {
+    try(Connection con = DB.sql2o.open()){
+    String sql = "SELECT venues.* FROM bands JOIN bands_venues ON (bands.id = bands_venues.band_id) JOIN venues ON (bands_venues.venue_id = venues.id) WHERE bands.id = :band_id;";
+      return con.createQuery(sql)
+      .addParameter("band_id", this.getId())
+      .executeAndFetch(Venue.class);
+    }
+  }
+
   // public void delete() {
   //   try(Connection con = DB.sql2o.open()) {
   //     String deleteQuery = "DELETE FROM books WHERE id = :id;";
